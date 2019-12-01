@@ -20,7 +20,7 @@ public class ChatBoxEventListener {
 	
 	@EventListener
 	public void handleWebSocketConnectListener(SessionConnectedEvent event) {
-		logger.info("Receiverd a new web socket connection");
+		logger.info("Received a new web socket connection");
 	}
 	
 	@EventListener
