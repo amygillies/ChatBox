@@ -13,16 +13,17 @@ import org.springframework.web.socket.config.annotation.*;
 @Configuration
 @EnableWebSocketMessageBroker
 public class ChatBoxConfig implements WebSocketMessageBrokerConfigurer {
-
-	@Override
-	public void configureMessageBroker(MessageBrokerRegistry registry) {
-		registry.setApplicationDestinationPrefixes("/app");
-		registry.enableSimpleBroker("/topic");
-	}
 	
 	// Register a websocket endpoint that the clients use to connect to the websocket server
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		registry.addEndpoint("/ws").withSockJS(); //SockJS is used to enable fallback options for browsers that dont support websocket
+	}
+	
+	@Override
+	public void configureMessageBroker(MessageBrokerRegistry registry) {
+		registry.setApplicationDestinationPrefixes("/app");
+		registry.enableSimpleBroker("/topic");
+		
 	}
 }
